@@ -52,31 +52,31 @@ std::string fmt_object(std::vector<Object*> ast, int indentation) {
     for (int i = 0; i<ast.size();i++) {
         Object* currNode = ast[i];
         switch (currNode->type) {
-            case (VOID): {
+            case VOID: {
                 fmt_out << addindentation(indentation) <<  "| void\n";
                 break;
             }
-            case (INTEGER): {
+            case INTEGER: {
                 Integer* intobj = dynamic_cast<Integer*>(currNode);
                 fmt_out << addindentation(indentation) << "| int: " << intobj->value << "\n";
                 break;
             }
-            case (FLOAT): {
+            case FLOAT: {
                 Float* floatobj = dynamic_cast<Float*>(currNode);
                 fmt_out << addindentation(indentation) <<"| float: " << floatobj->value << "\n";
                 break;
             }
-            case (LIST): {
+            case LIST: {
                 List* listobj = dynamic_cast<List*>(currNode);
                 fmt_out << addindentation(indentation) << "| list:\n" << fmt_object(listobj->value, indentation+1);
                 break;
             }
-            case (SYMBOL): {
+            case SYMBOL: {
                 Symbol* symbolobj = dynamic_cast<Symbol*>(currNode);
                 fmt_out << addindentation(indentation) << "| symbol: " << symbolobj->value << '\n';
                 break;
             }
-            case (STRING): {
+            case STRING: {
                 String* stringobj = dynamic_cast<String*>(currNode);
                 fmt_out << addindentation(indentation) << "| string: " << stringobj->value << '\n';
                 break;
